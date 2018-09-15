@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <iostream>
 using namespace std;
 
@@ -18,20 +17,20 @@ int main()
 			day = day + 7;
 			month = month;
 		}
-		if (month % 2 == 1 && day + 7 < 30)
+		else if (month % 2 == 1 && day + 7 < 30)
 
 		{
 			day = day + 7;
 			month = month;
 		}
 
-		if (month % 2 == 1 && day + 7 > 30)
+		else if (month % 2 == 1 && day + 7 > 30)
 		{
 			day = 7 - 30 + day;
 			month = month + 1;
 		}
 
-		if (month % 2 == 0 && day + 7 > 31 && month != 12)
+		else if (month % 2 == 0 && day + 7 > 31 && month != 12)
 
 		{
 			day = 7 - 31 + day;
