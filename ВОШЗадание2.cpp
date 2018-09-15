@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -6,7 +5,7 @@ using namespace std;
 int main()
 
 {
-	int candies, s;
+	int candies, s, minimal, x;
 	int vase[3];
 	s = 1;
 	candies = 0;
@@ -16,20 +15,32 @@ int main()
 	cin >> vase[1];
 	cout << "Write the number of candies in the third vase" << endl;
 	cin >> vase[2];
-	while (s != 0)
+	minimal = min(vase[0], vase[1] / 2);
+	minimal = min(minimal, vase[2]);
+	vase[0] = vase[0] - minimal;
+	vase[1] = vase[1] - minimal * 2;
+	vase[2] = vase[2] - minimal;
+	if (vase[0] == 0)
 	{
-		for (int i = 0; i <= 2; i++)
-		{
-			vase[i] = vase[i] - 1;
-			candies = candies + 1;
-			if (vase[i] == 0)
-			{
-				i = 3;
-				s = 0;
-			}
-		}
+		candies = minimal * 4;
+	}
+	
+	else if (vase[2] == 0)
+	{
+		candies = minimal * 4 + 2;
+	}
+
+	else  if (vase[1] == 0)
+
+	{
+		candies = minimal * 4 + 1;
+	}
+
+	else if (vase[1] == 1)
+	{
+		candies = minimal * 4 + 3;
 	}
 	cout << candies << endl;
-	return 0;
 	system("Pause");
+	return 0;
 }
