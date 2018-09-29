@@ -9,7 +9,14 @@ int main()
 	cin >> M;
 	cout << "Write the number of people in the circle" << endl;
 	cin >> N;
-	person = M % N;
+	if (M % N == 0)
+	{
+		person = N;
+	}
+	else
+	{
+		person = M % N;
+	}
 	cout << person << endl;
 	system("Pause");
 	return 0;
