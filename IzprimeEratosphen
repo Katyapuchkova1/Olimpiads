@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main()
+
+{
+	int number;
+	int del = 0;
+	cout << "Write the number" << endl;
+	cin >> number;
+	while (number > 1)
+	{
+		for (int i = 1; i * i <= number; i++);
+		{
+			if (number % i == 0)
+			{
+				number = number / i;
+			}
+			else if (number % i != 0)
+			{
+				i = i + 1;
+				cout << i << " " << number / i << endl;
+			}
+		}
+	}
+	return 0;
+	system("Pause");
+}
